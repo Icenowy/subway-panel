@@ -1,0 +1,5 @@
+# Hashes of file build rules.
+3a768f77350ec2656c3fb90e1fb0c04e applet-menu.moc
+4caa4b6a5b1e36e5745e69dfaaf6982b heartlenv-panel.moc
+c1f4b8bda5df0edaee7a1f70747709bb instanceofwindow.moc
+5cda408ed2c4462904facf0b67f9526f window-list.moc

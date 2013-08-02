@@ -1,0 +1,90 @@
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2517886487/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2517886487.dir/build.make CMakeFiles/cmTryCompileExec2517886487.dir/build
+make[1]: Entering directory `/sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2517886487.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec2517886487.dir/CheckSymbolExists.cxx.o -c /sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_WIN’ was not declared in this scope
+make[1]: *** [CMakeFiles/cmTryCompileExec2517886487.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory `/sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec2517886487/fast] Error 2
+
+File /sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_WIN
+  return ((int*)(&Q_WS_WIN))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1429895756/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1429895756.dir/build.make CMakeFiles/cmTryCompileExec1429895756.dir/build
+make[1]: Entering directory `/sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1429895756.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec1429895756.dir/CheckSymbolExists.cxx.o -c /sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_QWS’ was not declared in this scope
+make[1]: *** [CMakeFiles/cmTryCompileExec1429895756.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory `/sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec1429895756/fast] Error 2
+
+File /sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_MAC exist failed with the following output:
+Change Dir: /sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4154710998/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4154710998.dir/build.make CMakeFiles/cmTryCompileExec4154710998.dir/build
+make[1]: Entering directory `/sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec4154710998.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec4154710998.dir/CheckSymbolExists.cxx.o -c /sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_MAC’ was not declared in this scope
+make[1]: *** [CMakeFiles/cmTryCompileExec4154710998.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory `/sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec4154710998/fast] Error 2
+
+File /sda2/home-sda8/easternheart/projects/heartlenv-panel/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_MAC
+  return ((int*)(&Q_WS_MAC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
