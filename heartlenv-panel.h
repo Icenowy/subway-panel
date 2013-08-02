@@ -10,6 +10,7 @@
 #include <QtGui/QFrame>
 #include <X11/X.h>
 #include <libheartlenv/xfitman.h>
+#include <QBoxLayout>
 
 class heartlenv_panel : public QFrame
 {
@@ -19,13 +20,14 @@ public:
 public:
     heartlenv_panel(int len, int hei, heartlenv_panel::position_T pos, QString name);
     virtual ~heartlenv_panel();
+    position_T getPosition(){return position;};
 protected:
-    int length,height;
+    int length,weight;
     position_T position;
     QDesktopWidget *desktop;
     void setScreenPos(const QPoint &pt);
     QSettings *settings;
-    QLayout *layout;
+    QBoxLayout *layout;
     Display *display;
 };
 

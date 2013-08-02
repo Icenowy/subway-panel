@@ -1,11 +1,12 @@
 #include <QtGui/QApplication>
+#include "panelapplication.h"
 #include "heartlenv-panel.h"
 
 #include <QSettings>
 
 int main(int argc, char** argv)
 {
-    QApplication app(argc, argv);
+    PanelApplication app(argc, argv);
     QSettings panel_set("Heartlenv","Panel-main");
     if(panel_set.value("initialized","") == "")
     {
@@ -36,5 +37,6 @@ int main(int argc, char** argv)
     }
     heartlenv_panel foo(length,weight,direction,"main");
     foo.show();
+    app.setAttribute(Qt::AA_NativeWindows);
     return app.exec();
 }

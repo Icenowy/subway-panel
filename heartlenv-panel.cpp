@@ -1,5 +1,7 @@
 #include "heartlenv-panel.h"
 
+#include <QVariant>
+
 #include <QtGui/QLabel>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
@@ -11,9 +13,11 @@
 
 #include <QX11Info>
 #include <QLayout>
-#include <QStackedLayout>
+#include <QBoxLayout>
+#include <QGridLayout>
 
-#include "applet-menu.h"
+#include "applets/menu/applet-menu.h"
+#include "applets/window-list/window-list.h"
 
 #include <libheartlenv/xfitman.h>
 
@@ -22,6 +26,7 @@ heartlenv_panel::heartlenv_panel(int len, int hei, heartlenv_panel::position_T p
 {
     desktop = QApplication::desktop();
     this->setWindowFlags(Qt::FramelessWindowHint|Qt::Window|Qt::WindowStaysOnTopHint);
+    position = pos;
     switch(pos)
     {
 	case top:
@@ -33,14 +38,14 @@ heartlenv_panel::heartlenv_panel(int len, int hei, heartlenv_panel::position_T p
 	else length = len;
 	this->setMinimumWidth(length);
 	this->setMaximumWidth(length);
-	height = hei;
-	this->setMaximumHeight(height);
-	this->setMinimumHeight(height);
+	weight = hei;
+	this->setMaximumHeight(weight);
+	this->setMinimumHeight(weight);
 	layout = new QBoxLayout(QBoxLayout::LeftToRight,this);
 	((QBoxLayout*)layout)->setAlignment(Qt::AlignLeft);
-	((QBoxLayout*)layout)->setSpacing(1);
-	//layout = new QStackedLayout(this);
-	//((QStackedLayout*)layout)->setStackingMode(QStackedLayout::StackAll);
+	((QBoxLayout*)layout)->setSpacing(0);
+	((QBoxLayout*)layout)->setMargin(0);
+	((QBoxLayout*)layout)->setContentsMargins(0,0,0,0);
 	break;
     }
     switch(pos)
@@ -49,7 +54,7 @@ heartlenv_panel::heartlenv_panel(int len, int hei, heartlenv_panel::position_T p
 	  setScreenPos(QPoint(0,0));
 	  break;
 	case bottom:
-	  setScreenPos(QPoint(0,desktop->height()-height));
+	  setScreenPos(QPoint(0,desktop->height()-weight));
 	  break;
 	case left:
 	case right:
@@ -76,6 +81,10 @@ heartlenv_panel::heartlenv_panel(int len, int hei, heartlenv_panel::position_T p
 	{
 	    applet = new applet_menu(this);
 	}
+	if(name == "window-list")
+	{
+	    applet = new window_list(this);
+	}
 	else
 	{
 	    applet = new QWidget(this);
@@ -86,12 +95,25 @@ heartlenv_panel::heartlenv_panel(int len, int hei, heartlenv_panel::position_T p
 	    applet->setMinimumHeight(tmp);
 	    applet->setMaximumHeight(tmp);
 	}
+	else
+	{
+	    QSizePolicy sp = applet->sizePolicy();
+	    sp.setVerticalPolicy(QSizePolicy::Expanding);
+	    applet->setSizePolicy(sp);
+	}
 	if((tmp = settings->value(applet_setting_name+"-width").toInt()) != 0)
 	{
 	    applet->setMaximumWidth(tmp);
 	    applet->setMinimumWidth(tmp);
 	}
-	layout->addWidget(applet);
+	else
+	{
+	    QSizePolicy sp = applet->sizePolicy();
+	    sp.setHorizontalPolicy(QSizePolicy::Expanding);
+	    applet->setSizePolicy(sp);
+	}
+	//layout->addWidget(applet);
+	layout->insertWidget(layout->count(),applet);
     }
     this->setAttribute(Qt::WA_X11NetWmWindowTypeDock);
     display = this->x11Info().display();
@@ -99,7 +121,7 @@ heartlenv_panel::heartlenv_panel(int len, int hei, heartlenv_panel::position_T p
     switch(pos)
     {
       case bottom:
-	fitman.setStrut(winId(),  0, 0, 0, height,
+	fitman.setStrut(winId(),  0, 0, 0, weight,
                /* Left   */   0, 0,
                /* Right  */   0, 0,
                /* Top    */   0, 0,
@@ -107,7 +129,7 @@ heartlenv_panel::heartlenv_panel(int len, int hei, heartlenv_panel::position_T p
                          );
 	break;
       case top:
-	fitman.setStrut(winId(),  0, 0, height, 0,
+	fitman.setStrut(winId(),  0, 0, weight, 0,
                /* Left   */   0, 0,
                /* Right  */   0, 0,
                /* Top    */   0, desktop->width(),
