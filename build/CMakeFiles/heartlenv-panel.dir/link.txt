@@ -1,1 +1,0 @@
-/usr/bin/c++   -g    CMakeFiles/heartlenv-panel.dir/applets/window-list/instanceofwindow.cpp.o CMakeFiles/heartlenv-panel.dir/heartlenv-panel.cpp.o CMakeFiles/heartlenv-panel.dir/main.cpp.o CMakeFiles/heartlenv-panel.dir/applets/menu/main.cpp.o CMakeFiles/heartlenv-panel.dir/applets/window-list/main.cpp.o  -o heartlenv-panel -rdynamic -lQtCore -lQtGui -lheartlenv 
