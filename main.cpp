@@ -1,6 +1,6 @@
 #include <QtGui/QApplication>
 #include "panelapplication.h"
-#include "heartlenv-panel.h"
+#include "subway-panel.h"
 
 #include <QSettings>
 
@@ -17,25 +17,25 @@ int main(int argc, char** argv)
     }
     int length = panel_set.value("length").toInt();
     int weight = panel_set.value("weight").toInt();
-    heartlenv_panel::position_T direction;
+    subway_panel::position_T direction;
     QString direction_val = panel_set.value("direction").toString();
     if(direction_val == "bottom")
     {
-      direction = heartlenv_panel::bottom;
+      direction = subway_panel::bottom;
     }
     if(direction_val == "top")
     {
-      direction = heartlenv_panel::top;
+      direction = subway_panel::top;
     }
     if(direction_val == "left")
     {
-      direction = heartlenv_panel::left;
+      direction = subway_panel::left;
     }
     if(direction_val == "right")
     {
-      direction = heartlenv_panel::right;
+      direction = subway_panel::right;
     }
-    heartlenv_panel foo(length,weight,direction,"main");
+    subway_panel foo(length,weight,direction,"main");
     foo.show();
     app.setAttribute(Qt::AA_NativeWindows);
     return app.exec();

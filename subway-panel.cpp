@@ -1,4 +1,4 @@
-#include "heartlenv-panel.h"
+#include "subway-panel.h"
 
 #include <QVariant>
 
@@ -16,13 +16,12 @@
 #include <QBoxLayout>
 #include <QGridLayout>
 
-#include "applets/menu/applet-menu.h"
 #include "applets/window-list/window-list.h"
 
-#include <libheartlenv/xfitman.h>
+#include <libsubway/xfitman.h>
 
 
-heartlenv_panel::heartlenv_panel(int len, int hei, heartlenv_panel::position_T pos, QString name): QFrame()
+subway_panel::subway_panel(int len, int hei, subway_panel::position_T pos, QString name): QFrame()
 {
     desktop = QApplication::desktop();
     this->setWindowFlags(Qt::FramelessWindowHint|Qt::Window|Qt::WindowStaysOnTopHint);
@@ -60,13 +59,13 @@ heartlenv_panel::heartlenv_panel(int len, int hei, heartlenv_panel::position_T p
 	case right:
 	  break;
     }
-    settings = new QSettings("Heartlenv","Panel-" + name + "-Applets");
+    settings = new QSettings("Subway","Panel-" + name + "-Applets");
     if(settings->value("initialized","").toString() == "")
     {
 	//Initialize new panel
 	settings->setValue("initialized","y");
 	settings->setValue("appletnum",1);
-	settings->setValue("applet1","menu");
+	settings->setValue("applet1","window-list");
 	settings->setValue("applet1-height",32);
 	settings->setValue("applet1-width",32);
 	//settings->setValue("applet1-align","left");
@@ -77,10 +76,6 @@ heartlenv_panel::heartlenv_panel(int len, int hei, heartlenv_panel::position_T p
 	QString applet_setting_name = QString("applet")+QVariant(i).toString();
 	QString name = settings->value(applet_setting_name).toString();
 	QWidget *applet;
-	if(name == "menu")
-	{
-	    applet = new applet_menu(this);
-	}
 	if(name == "window-list")
 	{
 	    applet = new window_list(this);
@@ -138,14 +133,14 @@ heartlenv_panel::heartlenv_panel(int len, int hei, heartlenv_panel::position_T p
     }
 }
 
-heartlenv_panel::~heartlenv_panel()
+subway_panel::~subway_panel()
 {
 }
 
-void heartlenv_panel::setScreenPos(const QPoint &pt)
+void subway_panel::setScreenPos(const QPoint &pt)
 {
     this->move(pt);
 }
 
 
-#include "heartlenv-panel.moc"
+#include "subway-panel.moc"

@@ -24,14 +24,14 @@
 
 #include <QX11Info>
 
-window_list::window_list(heartlenv_panel* parent): Applet(parent)
+window_list::window_list(subway_panel* parent): Applet(parent)
 {
     if(parent != NULL)
     {
 	switch(parent->getPosition())
 	{
-	  case heartlenv_panel::bottom:
-	  case heartlenv_panel::top:
+	  case subway_panel::bottom:
+	  case subway_panel::top:
 	    layout = new QBoxLayout(QBoxLayout::LeftToRight,this);
 	    ((QBoxLayout*)layout)->setAlignment(Qt::AlignLeft);
 	    ((QBoxLayout*)layout)->setSpacing(0);
@@ -52,16 +52,16 @@ void window_list::setButtonMaxWidth()
 
    while (i != buttons.constEnd())
    {
-       switch (((heartlenv_panel*)parentWidget())->getPosition())
+       switch (((subway_panel*)parentWidget())->getPosition())
        {
-	 case heartlenv_panel::top:
-	 case heartlenv_panel::bottom:
-               i.value()->setMaximumSize(QSize(((heartlenv_panel*)parentWidget())->height(), ((heartlenv_panel*)parentWidget())->height()));
+	 case subway_panel::top:
+	 case subway_panel::bottom:
+               i.value()->setMaximumSize(QSize(((subway_panel*)parentWidget())->height(), ((subway_panel*)parentWidget())->height()));
            break;
 
-       case heartlenv_panel::left:
-       case heartlenv_panel::right:
-               i.value()->setMaximumSize(QSize(((heartlenv_panel*)parentWidget())->width(), ((heartlenv_panel*)parentWidget())->width()));
+       case subway_panel::left:
+       case subway_panel::right:
+               i.value()->setMaximumSize(QSize(((subway_panel*)parentWidget())->width(), ((subway_panel*)parentWidget())->width()));
            break;
        }
        ++i;
@@ -109,7 +109,8 @@ void window_list::refreshTaskList()
 
         if (!n)
         {
-            delete i.value();
+            //delete i.value();
+	    i.value()->deleteLater();
             i.remove();
         }
     }

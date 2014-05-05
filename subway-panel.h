@@ -1,5 +1,5 @@
-#ifndef heartlenv_panel_H
-#define heartlenv_panel_H
+#ifndef subway_panel_H
+#define subway_panel_H
 
 #include <QtGui/QMainWindow>
 #include <QtGui/QDesktopWidget>
@@ -9,17 +9,17 @@
 #include <QApplication>
 #include <QtGui/QFrame>
 #include <X11/X.h>
-#include <libheartlenv/xfitman.h>
+#include <libsubway/xfitman.h>
 #include <QBoxLayout>
 
-class heartlenv_panel : public QFrame
+class subway_panel : public QFrame
 {
     Q_OBJECT
 public:
     enum position_T{top,bottom,left,right};
 public:
-    heartlenv_panel(int len, int hei, heartlenv_panel::position_T pos, QString name);
-    virtual ~heartlenv_panel();
+    subway_panel(int len, int hei, subway_panel::position_T pos, QString name);
+    virtual ~subway_panel();
     position_T getPosition(){return position;};
 protected:
     int length,weight;
@@ -31,4 +31,4 @@ protected:
     Display *display;
 };
 
-#endif // heartlenv_panel_H
+#endif // subway_panel_H

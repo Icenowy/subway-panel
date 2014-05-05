@@ -22,10 +22,11 @@
 #define INSTANCEOFWINDOW_H
 
 #include <QtGui/QToolButton>
+#include <QtGui/QPushButton>
 #include <X11/Xlib.h>
-#include <libheartlenv/xfitman.h>
+#include <libsubway/xfitman.h>
 
-class InstanceOfWindow : public QToolButton
+class InstanceOfWindow : public QPushButton //QToolButton
 {
     Q_OBJECT
 

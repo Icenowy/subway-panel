@@ -25,7 +25,7 @@
 #include <QMenu>
 #include <QWidget>
 #include <QLayout>
-#include "../heartlenv-panel.h"
+#include "../subway-panel.h"
 #include "instanceofwindow.h"
 #include "../applet.h"
 
@@ -45,7 +45,7 @@ class window_list : public Applet
       bool onlyShowCurrentDesktop;
       friend class InstanceOfWindow;
     public:
-      window_list(heartlenv_panel* parent = 0);
+      window_list(subway_panel* parent = 0);
     protected:
       virtual bool x11EventFilter(XEvent* event);
     public slots:

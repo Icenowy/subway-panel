@@ -54,9 +54,8 @@ void InstanceOfWindow::updateIcon()
     QPixmap pix;
     if (xfitMan().getClientIcon(window, pix))
         setIcon(QIcon(pix));
-    /*
     else
-        setIcon(XdgIcon::defaultApplicationIcon());*/
+        setIcon(QIcon::fromTheme("application-x-executable"));
 }
 
 void InstanceOfWindow::AllUncheck()
